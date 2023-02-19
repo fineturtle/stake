@@ -315,9 +315,10 @@ const Home = () => {
 
   const unStake = async (idx) => {
     setShowSpinner(true)
-    stakingContract.methods.unStaking(1).send({ from: curAcount })
+    stakingContract.methods.Unstake(idx).send({ from: curAcount })
       .then((res) => {
         toast.success('Successfully unstaked', { pauseOnFocusLoss: false });
+        window.location.reload();
       })
       .catch((error) => {
         toast.error('failed unstaked', { pauseOnFocusLoss: false });
