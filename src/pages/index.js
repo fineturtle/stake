@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import Web3 from "web3";
 import {
-  ALERT_EMPTY,
+  ALERT_EMPTY, RPC_URL,
   ALERT_ERROR, ALERT_WARN, ClaimPeriod, CUSTOM_WEB3, getFineVipContract, getStakingContract,
   getSwapContract, getUSDCContract,
   getUSDTContract, STAKING_ADDRESS,
@@ -26,6 +26,11 @@ import walletIco from "../assets/wallet.png";
 import { setWallet } from "../app/reducers/walletReducer";
 
 const web3Modal = web3ModalSetup();
+
+const httpProvider = new Web3.providers.HttpProvider(RPC_URL);
+const web3NoAccount = new Web3(httpProvider);
+const isAddress = web3NoAccount.utils.isAddress;
+const contractNoAccount = getFineVipContract(web3NoAccount);
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -170,7 +175,7 @@ const Home = () => {
           let _commission = await stakingContract.methods.referralAmount(curAcount).call();
           let _referrals = await swapContract.methods.getReferrals(curAcount).call();
 
-          
+
           let unique = [...new Map(_referrals.map((m) => [m.refer, m])).values()];
           let _soldFineAmount = _referrals.reduce((val, row) => {
             let value = val + Number(CUSTOM_WEB3.utils.fromWei(row[1], "ether"))
@@ -237,8 +242,8 @@ const Home = () => {
     let search = window.location.search
     let refer = search.split("=")[1]
     if (refer == undefined || refer.length != 42 || refer.toLocaleLowerCase() == ZERO_ADDRESS.toLowerCase()) refer = ZERO_ADDRESS;
-    if (amount < 50) {
-      toast.warn('Please enter a minimum purchase amount(50).', { pauseOnFocusLoss: false });
+    if (amount < 20) {
+      toast.warn('Please enter a minimum purchase amount (20 USDC/USDT)', { pauseOnFocusLoss: false });
       return;
     }
     if (web3.utils.toChecksumAddress(wallet.address)) {

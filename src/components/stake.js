@@ -217,7 +217,7 @@ const Stake = (props) => {
             </div>
             <div className="histories">
               <div className="fs-12 mt-4 fc-929EAE">Total Claimed</div>
-              <div className="fw-800">{props.claimAmount} USDC</div>
+              <div className="fw-800">{props.claimAmount > 0 ? props.claimAmount : "0.00"} USDC</div>
               {
                 (props.claimHistory).length > 0 ?
                   (props.claimHistory)?.map((row, i) => {
@@ -262,7 +262,7 @@ const Stake = (props) => {
             </div>
             <div className="histories">
               <div className="fs-12 mt-4 fc-929EAE">Total Staked</div>
-              <div className="fw-800">{props.stakedBalance} FINE-VIP</div>
+              <div className="fw-800">{props.stakedBalance > 0 ? props.stakedBalance : "0.00"} FINE-VIP</div>
               {
                 (props.stakingHistory).length > 0 ?
 
