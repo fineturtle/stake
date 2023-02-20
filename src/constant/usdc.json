@@ -2,18 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "_NAME",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_SYMBOL",
-        "type": "string"
-      },
-      {
         "internalType": "uint256",
-        "name": "initialSupply",
+        "name": "totalSupply",
         "type": "uint256"
       }
     ],

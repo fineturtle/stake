@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Modal } from "react-responsive-modal";
 import { toast } from 'react-toastify';
@@ -25,10 +25,6 @@ const Stake = (props) => {
 
   const [receiverAddy, setReceiverAddy] = useState("");
   const [amountToSend, setAmountToSend] = useState(0);
-
-  useEffect(() => {
-    console.log('rpos.', props)
-  }, []);
 
   const copyAddy = () => {
     navigator.clipboard.writeText(wallet.address).then(

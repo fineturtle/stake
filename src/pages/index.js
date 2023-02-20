@@ -190,7 +190,7 @@ const Home = () => {
           }, 0)
 
           setCommission(CUSTOM_WEB3.utils.fromWei(_commission, "mwei"))
-          setClaimAmount(_claimAmount)
+          setClaimAmount(_claimAmount.toFixed(2))
           setSoldFineAmount(_soldFineAmount)
           setClaimHistory(sortedHistory)
           setReferrals(unique.length)
@@ -336,16 +336,26 @@ const Home = () => {
 
   const claimReward = async () => {
     setShowSpinner(true)
-    stakingContract.methods.claimReward().send({ from: wallet.address })
-      .then((res) => {
-        toast.success('Successfully claimed', { pauseOnFocusLoss: false });
-      })
-      .catch((error) => {
-        toast.error('failed claimed', { pauseOnFocusLoss: false });
-        console.log('error', error)
-      });;
-    getWallletInfo()
-    getStakingInfo()
+    stakingContract.methods.claimReward().estimateGas({from: wallet.address}).then((res) => {
+      console.log('re', res)
+    }).catch((error) => {
+      console.log('eee', error)
+    })
+    try {
+      stakingContract.methods.claimReward().send({ from: wallet.address })
+        .then((res) => {
+          toast.success('Successfully claimed', { pauseOnFocusLoss: false });
+          window.location.reload();
+        })
+        .catch((error) => {
+          toast.error('failed claimed', { pauseOnFocusLoss: false });
+          console.log('error', error)
+        });;
+    } catch (error) {
+      console.log('error', error)
+    }
+    // getWallletInfo()
+    // getStakingInfo()
     setShowSpinner(false)
   }
 
