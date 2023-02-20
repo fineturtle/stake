@@ -229,13 +229,9 @@ const Stake = (props) => {
                               <div className="fc-929EAE fs-14">{month}</div>
                               <div className="fw-800 fs-12">{day}</div>
                             </div>
-                            <div className="fs-14">{row.rewardAmount ? "Reward" : "Refer"}</div>
-                            <div className="text-end">
-                              <div className="fs-16">{date.slice(16, 25)}  +UTC</div>
-                            </div>
-                            <div className="fs-16">
-                              <div className="fs-16"> {CUSTOM_WEB3.utils.fromWei(row[0], "mwei")} USDC</div>
-                            </div>
+                            <div className="fs-14 flex-1 text-end">{row.rewardAmount ? "Reward" : "Refer"}</div>
+                            <div className="text-end flex-1 fs-16">{date.slice(16, 25)}  +UTC</div>
+                            <div className="fs-16 flex-1 text-end">{CUSTOM_WEB3.utils.fromWei(row[0], "mwei")} USDC</div>
                           </div>
                         </>
                       )
