@@ -259,7 +259,6 @@ const Stake = (props) => {
                 (props.stakingHistory).length > 0 ?
 
                   props.stakingHistory?.map((row, i) => {
-
                     let stakingDate = new Date(row[1] * 1000)
                     let currentTime = Math.floor(Date.now() / 1000)
                     let date = stakingDate.toDateString()
@@ -277,7 +276,7 @@ const Stake = (props) => {
                           <p className="fs-12" style={{ margin: "unset" }}>value {CUSTOM_WEB3.utils.fromWei(row[0], "ether") * 10} USDC</p>
                         </div>
                         <div className="d-flex flex-column">
-                          <button className="unstake-btn" onClick={() => { props.unStake(i) }} disabled={(row[0] > 0 && passTime >= UnstakePeriod) ? false : true}>{row[0] > 0 ? "Unstake" : "Unstaked"}</button>
+                          <button className="unstake-btn" onClick={() => { props.unStake(i) }} disabled={row.unstaked || (UnstakePeriod-passTime>0) ? true : false}>{row.unstaked ? "Unstaked" : "Unstake"}</button>
                         </div>
                       </div>
                     )

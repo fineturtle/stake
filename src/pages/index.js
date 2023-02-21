@@ -238,12 +238,14 @@ const Home = () => {
   const switchPage = (pageName) => { setCurrentPage(pageName); };
 
   const buyToken = async (amount, coin) => {
+    setShowSpinner(false)
     let approveRes;
     let search = window.location.search
     let refer = search.split("=")[1]
     if (refer == undefined || refer.length != 42 || refer.toLocaleLowerCase() == ZERO_ADDRESS.toLowerCase()) refer = ZERO_ADDRESS;
     if (amount < 20) {
       toast.warn('Please enter a minimum purchase amount (20 USDC/USDT)', { pauseOnFocusLoss: false });
+      setShowSpinner(false)
       return;
     }
     if (web3.utils.toChecksumAddress(wallet.address)) {
@@ -259,9 +261,16 @@ const Home = () => {
         }
       } catch (error) {
         console.log('approve error', error)
+        setShowSpinner(false)
       }
       let token = coin == 'USDC' ? true : false;
       if (approveRes.transactionHash) {
+        swapContract.methods.Buy(web3.utils.toWei(amount, "mwei"), refer, token).estimateGas({ from: wallet.address })
+          .then((res) => {
+            console.log('buy token estimate gas', res)
+          }).catch((error) => {
+            console.log('buy token estimate gas error', error)
+          })
         swapContract.methods
           .Buy(
             web3.utils.toWei(amount, "mwei"),
@@ -271,13 +280,16 @@ const Home = () => {
           .then((res) => {
             toast.success('Successfully purchased token', { pauseOnFocusLoss: false });
             getWallletInfo()
+            setShowSpinner(false)
           })
           .catch((error) => {
             console.log('error', error)
+            setShowSpinner(false)
           });;
       }
     } else {
       toast.warn('Please connect wallet before buy', { pauseOnFocusLoss: false });
+      setShowSpinner(false)
     }
   };
 
@@ -293,50 +305,65 @@ const Home = () => {
         .send({ from: curAcount })
         .then(async (res) => {
           if (res.transactionHash) {
+            stakingContract.methods.Stake(web3.utils.toWei(_amount, "ether")).estimateGas({ from: wallet.address })
+              .then((res) => {
+                console.log('stake estimate gas', res)
+              }).catch((error) => {
+                console.log('stake estimate gas error', error)
+              })
             stakingContract.methods
               .Stake(web3.utils.toWei(_amount, "ether"))
               .send({ from: curAcount })
               .then((res) => {
+                console.log('res', res)
                 toast.success('Successfully staked', { pauseOnFocusLoss: false });
                 getWallletInfo()
                 getStakingInfo()
                 window.location.reload();
+                setShowSpinner(false)
               })
               .catch((error) => {
                 toast.error('failed staked', { pauseOnFocusLoss: false });
                 console.log('error', error)
+                setShowSpinner(false)
               });;
           }
         })
         .catch((error) => {
           toast.error('failed staked', { pauseOnFocusLoss: false });
           console.log('error', error)
+          setShowSpinner(false)
         });
     } else {
       return false
     }
-    setShowSpinner(false)
   };
 
   const unStake = async (idx) => {
+    stakingContract.methods.Unstake(idx).estimateGas({ from: wallet.address }).then((res) => {
+      console.log('unstake estimate gas', res)
+    }).catch((error) => {
+      console.log('unstake estimate gas error', error)
+    })
     setShowSpinner(true)
     stakingContract.methods.Unstake(idx).send({ from: curAcount })
       .then((res) => {
         toast.success('Successfully unstaked', { pauseOnFocusLoss: false });
         window.location.reload();
+        setShowSpinner(false)
+        // getWallletInfo()
+        // getStakingInfo()
       })
       .catch((error) => {
         toast.error('failed unstaked', { pauseOnFocusLoss: false });
         console.log('error', error)
+        setShowSpinner(false)
       });
-    getWallletInfo()
-    getStakingInfo()
-    setShowSpinner(false)
   };
 
   const claimReward = async () => {
     setShowSpinner(true)
-    stakingContract.methods.claimReward().estimateGas({from: wallet.address}).then((res) => {
+    stakingContract.methods.claimReward().estimateGas({ from: wallet.address }).then((res) => {
       console.log('re', res)
     }).catch((error) => {
       console.log('eee', error)
@@ -346,17 +373,18 @@ const Home = () => {
         .then((res) => {
           toast.success('Successfully claimed', { pauseOnFocusLoss: false });
           window.location.reload();
+          setShowSpinner(false)
         })
         .catch((error) => {
           toast.error('failed claimed', { pauseOnFocusLoss: false });
           console.log('error', error)
+          setShowSpinner(false)
         });;
     } catch (error) {
       console.log('error', error)
     }
     // getWallletInfo()
     // getStakingInfo()
-    setShowSpinner(false)
   }
 
   const sendFine = async (amount, address) => {
@@ -373,13 +401,14 @@ const Home = () => {
       .send({ from: wallet.address })
       .then((res) => {
         toast.success('Successfully sent', { pauseOnFocusLoss: false });
+        setShowSpinner(false)
       })
       .catch((error) => {
         toast.error('Transaction failed', { pauseOnFocusLoss: false });
+        setShowSpinner(false)
         console.log('error', error)
       });
     getWallletInfo()
-    setShowSpinner(false)
   };
 
   return (

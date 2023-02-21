@@ -13,7 +13,7 @@ export const ADMIN_ACCOUNT = "";
 export const FINE_VIP_ADDRESS = "0x0516c2466756C87fF065b529be87e886F750e3eD";
 export const USDC_ADDRESS = "0xa8A28c353dDF1A0E4eC50feCA6Dbc5Ad364Fe949";
 export const USDT_ADDRESS = "0xd216F026aFdd5B854A7341e12CC71D651507B462";
-export const STAKING_ADDRESS = "0x72fE0D0e97893Bcb982b361eD317e39c1BcE7f8D"
+export const STAKING_ADDRESS = "0x603eDdCf66Cd5dD004BE332591168ACC34135169"
 export const SWAP_ADDRESS = "0xbD02CB6Dc908A2D39c4471DD3aEbf7189CCbBD58"
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
@@ -29,7 +29,7 @@ export const ETH_RPC = 'https://mainnet.infura.io/v3/0e42c582d71b4ba5a8750f688fc
 export const TEST_RPC = 'https://goerli.infura.io/v3/0e42c582d71b4ba5a8750f688fce07da'
 export const INFURA_ID = '0e42c582d71b4ba5a8750f688fce07da'
 export const ClaimPeriod = 300;
-export const UnstakePeriod = 2100;
+export const UnstakePeriod = 600;
 
 export const REF_PREFIX = `${PUBLIC_URL}/?ref=`;
 export const CUSTOM_WEB3 = new Web3(new Web3.providers.HttpProvider(TEST_RPC))

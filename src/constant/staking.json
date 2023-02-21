@@ -321,7 +321,7 @@
             "type": "uint8"
           }
         ],
-        "internalType": "struct FINTVIPSTAKING.ReferralInfo[]",
+        "internalType": "struct TEST_STAKING.ReferralInfo[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -357,7 +357,7 @@
             "type": "uint8"
           }
         ],
-        "internalType": "struct FINTVIPSTAKING.ClaimInfo[]",
+        "internalType": "struct TEST_STAKING.ClaimInfo[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -396,9 +396,14 @@
             "internalType": "uint8",
             "name": "percent",
             "type": "uint8"
+          },
+          {
+            "internalType": "bool",
+            "name": "unstaked",
+            "type": "bool"
           }
         ],
-        "internalType": "struct FINTVIPSTAKING.StakingInfo[]",
+        "internalType": "struct TEST_STAKING.StakingInfo[]",
         "name": "",
         "type": "tuple[]"
       }
