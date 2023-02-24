@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Orbitron";
+  src: local("Orbitron"),
+    url(/src/assets/font/Orbitron-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "OrbitronBold";
+  src: local("OrbitronBold"),
+    url(/src/assets/font/Orbitron-Bold.ttf) format("truetype");
+}
+
+html {
+  font-size: calc(60% + 0.8vmin);
+  overflow: auto;
+}
+
+body {
+  font-family: 'Orbitron' !important;
+}
+

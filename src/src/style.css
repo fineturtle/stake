@@ -1,0 +1,237 @@
+.left-panel {
+  background-color: #232323;
+  min-height: 100vh;
+  color: white;
+  width: 221px;
+}
+.left-panel-switch {
+  top: 20%;
+  color: #8a8a8a;
+}
+.left-panel-botton {
+  top: 40%;
+}
+.mini-left-panel {
+  position: fixed;
+  background-color: #000;
+  top: 0px;
+  z-index: 111;
+  display: none;
+  min-width: 35px;
+  min-height: 35px;
+  /* border-radius: 10px; */
+  height: 100vh;
+  cursor: pointer;
+}
+.header {
+  height: 60px;
+  padding: 6px 23px 6px 35px;
+}
+.switch-active {
+  border-left: 2px solid #fff;
+  color: white;
+}
+.right-panel {
+  width: calc(100% - 221px);
+  padding: 24px 65px 0 65px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.background-F8 {
+  background-color: #f8f8f8;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.w-border {
+  border: 0 !important;
+  --bs-progress-height: 0.2rem !important;
+  --bs-progress-bg: #dee4e6;
+}
+.w-border-bar {
+  background-color: #000;
+  width: 40%;
+}
+.card_img {
+  background-image: url("./assets/Card_Background.png");
+  background-size: 100% 100%;
+}
+.card_img .position-relative {
+  min-height: 200px;
+}
+.border-dot {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%23D7D9CFFF' stroke-width='2' stroke-dasharray='10%2c 9' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+  border-radius: 20px;
+}
+.primary-button {
+  border-width: 1px;
+  border-color: #1b212d;
+  border-radius: 2px;
+}
+.fs-10 {
+  font-size: 10px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fw-800 {
+  font-weight: 800;
+  font-size: 20px;
+  font-family: OrbitronBold;
+}
+.fc-888888 {
+  color: #888888;
+}
+.fc-929EAE {
+  color: #929eae;
+}
+.fc-828282 {
+  color: #828282;
+}
+.fc-B0B0B0 {
+  color: #b0b0b0;
+}
+.fc-C5C5C5 {
+  color: #c5c5c5;
+}
+.fc-D8D8D8 {
+  color: #d8d8d8;
+}
+.fc-DADADA {
+  color: #DADADA;
+}
+.fc-8F8F8F {
+  color: #8F8F8F;
+}
+.bg-f8f8f8 {
+  background-color: #f8f8f8;
+}
+.break-all {
+  word-break: break-all;
+
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  /* width: 100vw; */
+}
+.stackTx {
+  border-left: 3px solid #c4c9ff;
+  border-radius: 3px 0 0 3px;
+  background-color: #f8f8f8;
+}
+.stackTx .border-right {
+  border-right: 1.5px solid black;
+}
+/* .page-icons {
+  background-image: url('./assets/buy_active.png');
+} */
+.hover-custom .hover-item {
+  display: none;
+}
+.hover-custom .hover-item:hover {
+  display: block;
+}
+.hover-custom:hover .hover-item {
+  display: block;
+}
+.w-520px {
+  max-width: 520px;
+}
+.stake-modal {
+  width: 622px;
+  background-color: #000;
+  color: white;
+  padding: 86px 54px;
+  border-radius: 15px;
+}
+.stake-modal .react-responsive-modal-closeButton {
+  background-color: white;
+}
+.stake-modal input {
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.stake-modal button {
+  color: #000000 !important;
+}
+.claim-btn {
+  border-radius: 4px;
+  border: 1px solid #1b212d;
+  color: #ffffff;
+}
+.unstake-btn {
+  font-size: 10px;
+  padding: 9px 10px;
+  border-radius: 3px;
+}
+.border-bottom-custom1 {
+  border-bottom: 0.2rem solid #000;
+  padding-bottom: 17.03px;
+}
+.border-bottom-custom2 {
+  border-bottom: 0.2rem solid #dee4e6;
+  z-index: -1;
+  margin-top: 14px;
+}
+.histories {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.histories::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 920px) {
+  .left-panel {
+    display: none;
+  }
+  .right-panel {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .mini-left-panel {
+    display: block;
+  }
+  .mobile-input-width {
+    max-width: 200px;
+  }
+  .stake-modal{
+    width: unset;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .header {
+    padding: 6px 21px 6px 21px;
+  }
+  .right-btns {
+    font-size: 8px;
+  }
+  .right-btns .metamask {
+    height: 14px;
+  } 
+  .right-btns .polygon {
+    font-size: 8px !important;
+  }
+  .right-btns .polygon img {
+    height: 12px !important;
+  }
+}
