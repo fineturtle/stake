@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "finevip",
+        "name": "fv",
         "type": "address"
       },
       {
@@ -141,7 +141,7 @@
   },
   {
     "inputs": [],
-    "name": "FINEVIPAddress",
+    "name": "FVAddress",
     "outputs": [
       {
         "internalType": "address",
@@ -205,6 +205,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -236,7 +243,7 @@
         "type": "address"
       }
     ],
-    "name": "changeFineVipContract",
+    "name": "changeFVContract",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -321,7 +328,7 @@
             "type": "uint8"
           }
         ],
-        "internalType": "struct TEST_STAKING.ReferralInfo[]",
+        "internalType": "struct FVSTAKE.ReferralInfo[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -357,7 +364,7 @@
             "type": "uint8"
           }
         ],
-        "internalType": "struct TEST_STAKING.ClaimInfo[]",
+        "internalType": "struct FVSTAKE.ClaimInfo[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -403,7 +410,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct TEST_STAKING.StakingInfo[]",
+        "internalType": "struct FVSTAKE.StakingInfo[]",
         "name": "",
         "type": "tuple[]"
       }
