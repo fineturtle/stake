@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import Web3 from "web3";
-import { ClaimPeriod, CUSTOM_WEB3, getFineVipContract, getStakingContract, getSwapContract, getUSDCContract, getUSDTContract, POlYGON, POLYGON_RPC, STAKING_ADDRESS, SWAP_ADDRESS, ZERO_ADDRESS } from "../constant";
+import { ClaimPeriod, customAmount, CUSTOM_WEB3, FINE_VIP_ADDRESS, FINE_VIP_ADDRESS1, maxAmount, STAKING_ADDRESS, STAKING_ADDRESS1, SWAP_ADDRESS, SWAP_ADDRESS1, USDC_ADDRESS, USDT_ADDRESS, ZERO_ADDRESS } from "../constant";
 import web3ModalSetup from "./../helpers/web3ModalSetup";
 
 import BuyPanel from "../components/buy";
@@ -17,6 +17,14 @@ import polygon from '../assets/polygon.png';
 import usdc from "../assets/usdc.png";
 import usdt from "../assets/usdt.png";
 import walletIco from "../assets/wallet.png";
+
+import Fine_VIP_ABI from "../constant/finevip.json";
+import Fine_VIP_ABI1 from "../constant/finevip1.json";
+import Staking_ABI from '../constant/staking.json';
+import Staking_ABI1 from '../constant/staking1.json';
+import Swap_ABI from '../constant/swap.json';
+import Swap_ABI1 from '../constant/swap1.json';
+import USDC_ABI from "../constant/usdc.json";
 
 import { setWallet } from "../app/reducers/walletReducer";
 
@@ -87,11 +95,11 @@ const Home = () => {
     }
 
     setWeb3(web3Provider);
-    setUsdcContract(getUSDCContract(web3Provider));
-    setUsdtContract(getUSDTContract(web3Provider));
-    setSwapContract(getSwapContract(web3Provider));
-    setFineContract(getFineVipContract(web3Provider));
-    setStakingContract(getStakingContract(web3Provider));
+    setUsdcContract(new web3Provider.eth.Contract(USDC_ABI, USDC_ADDRESS));
+    setUsdtContract(new web3Provider.eth.Contract(USDC_ABI, USDT_ADDRESS));
+    setSwapContract(new web3Provider.eth.Contract(Swap_ABI, SWAP_ADDRESS));
+    setFineContract(new web3Provider.eth.Contract(Fine_VIP_ABI, FINE_VIP_ADDRESS));
+    setStakingContract(new web3Provider.eth.Contract(Staking_ABI, STAKING_ADDRESS));
     setCurAcount(acc);
     setIsConnected(true);
 
