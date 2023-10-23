@@ -96,7 +96,7 @@ const Stake = (props) => {
                 <div className="fw-800">FINE-VIP Staking</div>
                 <div className="fs-12 fc-929EAE" style={{ paddingTop: "5px" }}>Stake your token</div>
               </div>
-              <div className="fs-14 fc-929EAE">
+              {/* <div className="fs-14 fc-929EAE">
                 Per Month &nbsp;&nbsp;
                 <span
                   className="fs-18 text-white px-2 "
@@ -104,7 +104,7 @@ const Stake = (props) => {
                 >
                   6%
                 </span>
-              </div>
+              </div> */}
             </div>
             <div className="d-flex justify-content-between flex-column flex-sm-row" style={{ gap: "21px" }}>
               <div className="border-dot flex-1" style={{ padding: "24px 14px" }}>

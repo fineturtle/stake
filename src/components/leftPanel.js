@@ -22,7 +22,7 @@ const LeftPanel = (props) => {
           <img src={logo} alt="logo" className="cursor-pointer" />
         </div>
         <div className="position-absolute left-panel-switch">
-          <div
+          {/* <div
             className={`d-flex gap-2 cursor-pointer align-items-center ps-3 p-1 ${props.currentPage === "buyPage" ? "switch-active" : ""
               }`}
             onClick={() => props.switchPage("buyPage")}
@@ -35,7 +35,7 @@ const LeftPanel = (props) => {
               )}
             </div>
             <div className="fs-14">Buy Tokens</div>
-          </div>
+          </div> */}
           <div
             className={`d-flex gap-2 cursor-pointer align-items-center ps-3 p-1 ${props.currentPage === "" || props.currentPage === "stakePage"
               ? "switch-active"
@@ -88,7 +88,7 @@ const LeftPanel = (props) => {
               <div className="d-flex justify-content-between mt-4">
                 <img src={logo} alt="logo" className="cursor-pointer" />
               </div>
-              <div
+              {/* <div
                 className={`d-flex gap-2 cursor-pointer align-items-center mt-4 ps-3 p-1 ${props.currentPage === "buyPage" ? "switch-active" : ""
                   }`}
                 onClick={() => {
@@ -106,7 +106,7 @@ const LeftPanel = (props) => {
                   )}
                 </div>
                 <div className="fs-14">Buy Tokens</div>
-              </div>
+              </div> */}
               <div
                 className={`d-flex gap-2 cursor-pointer align-items-center mt-2 ps-3 p-1 ${props.currentPage === "" || props.currentPage === "stakePage"
                   ? "switch-active"
